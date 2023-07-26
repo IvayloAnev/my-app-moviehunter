@@ -1,484 +1,286 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Welcome</span>
-    <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
-      </svg>
-    </a>
-    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none"/>
-        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
-      </svg>
-    </a>
-</div>
-
-<div class="content" role="main">
-
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-
-    <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
-      <title>Rocket Ship</title>
-      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
-        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
-          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#fff"/>
-          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#fff"/>
-        </g>
-      </g>
-    </svg>
-
-    <span>{{ title }} app is running!</span>
-
-    <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
-      <title>Rocket Ship Smoke</title>
-      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
-    </svg>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MovieHunter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../app/app.component.css" type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-func.js"></script>
+<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+</head>
+<body>
+<!-- START PAGE SOURCE -->
+<div id="shell">
+  <div id="header">
+    <h1 id="logo"><a href="#">MovieHunter</a></h1>
+    <div class="social"> <span>FOLLOW US ON:</span>
+      <ul>
+        <li><a class="twitter" href="#">twitter</a></li>
+        <li><a class="facebook" href="#">facebook</a></li>
+        <li><a class="vimeo" href="#">vimeo</a></li>
+        <li><a class="rss" href="#">rss</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">IN THEATERS</a></li>
+        <li><a href="#">COMING SOON</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">ADVERTISE</a></li>
+      </ul>
+    </div>
+    <div id="sub-navigation">
+      <ul>
+        <li><a href="#">SHOW ALL</a></li>
+        <li><a href="#">LATEST TRAILERS</a></li>
+        <li><a href="#">TOP RATED</a></li>
+        <li><a href="#">MOST COMMENTED</a></li>
+      </ul>
+      <div id="search">
+        <form action="#" method="get" accept-charset="utf-8">
+          <label for="search-field">SEARCH</label>
+          <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
+          <input type="submit" value="GO!" class="search-button" />
+        </form>
+      </div>
+    </div>
   </div>
-
-  <!-- Resources -->
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
-
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <span>Learn Angular</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      <span>CLI Documentation</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://material.angular.io">
-      <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px" width="21.813" height="23.453" viewBox="0 0 179.2 192.7"><path fill="#ffa726" d="M89.4 0 0 32l13.5 118.4 75.9 42.3 76-42.3L179.2 32 89.4 0z"/><path fill="#fb8c00" d="M89.4 0v192.7l76-42.3L179.2 32 89.4 0z"/><path fill="#ffe0b2" d="m102.9 146.3-63.3-30.5 36.3-22.4 63.7 30.6-36.7 22.3z"/><path fill="#fff3e0" d="M102.9 122.8 39.6 92.2l36.3-22.3 63.7 30.6-36.7 22.3z"/><path fill="#fff" d="M102.9 99.3 39.6 68.7l36.3-22.4 63.7 30.6-36.7 22.4z"/></svg>
-      <span>Angular Material</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-      <span>Angular Blog</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/devtools/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M14.73,13.31C15.52,12.24,16,10.93,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.43,0,2.74-0.48,3.81-1.27L19.59,21L21,19.59L14.73,13.31z M9.5,14C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5 S11.99,14,9.5,14z"/><polygon points="10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44"/></g></g></svg>
-      <span>Angular DevTools</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-  </div>
-
-  <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
-
-  <input type="hidden" #selection>
-
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>New Component</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Angular Material</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'pwa'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add PWA Support</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add Dependency</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'test'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Run and Watch Tests</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'build'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Build for Production</span>
-    </button>
-  </div>
-
-  <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
-  </div>
-
-  <!-- Links -->
-  <div class="card-container">
-    <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">
-        <title>Meetup Logo</title>
-        <path id="logo--mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>
-      </svg>
-    </a>
-
-    <a class="circle-link" title="Join the Conversation on Discord" href="https://discord.gg/angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 245 240">
-        <title>Discord Logo</title>
-        <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-        <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
-      </svg>
-    </a>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-      Love Angular?&nbsp;
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
-        <div class="github-star-badge">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          Star
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+          <h2>LATEST TRAILERS</h2>
+          <p class="text-right"><a href="#">See all</a></p>
         </div>
-      </a>
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-      </a>
-  </footer>
-
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">X-MAN</span></span> <a href="#"><img src="https://m.media-amazon.com/images/M/MV5BMjU1ODM1MzYxN15BMl5BanBnXkFtZTgwOTA4NDE2ODE@._V1_.jpg" alt="X-MAN pic" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 2</span></span> <a href="#"><img src="data:image/jpeg;base64,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" alt="spider man 2 pic" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 3</span></span> <a href="#"><img src="../content/images/movie3.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">VALKYRIE</span></span> <a href="#"><img src="../content/images/movie4.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">GLADIATOR</span></span> <a href="#"><img src="../content/images/movie5.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie last">
+          <div class="movie-image"> <span class="play"><span class="name">ICE AGE</span></span> <a href="#"><img src="css/images/movie6.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </div>
+      <div class="box">
+        <div class="head">
+          <h2>TOP RATED</h2>
+          <p class="text-right"><a href="#">See all</a></p>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">TRANSFORMERS</span></span> <a href="#"><img src="css/images/movie7.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">MAGNETO</span></span> <a href="#"><img src="css/images/movie8.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">KUNG FU PANDA</span></span> <a href="#"><img src="css/images/movie9.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">EAGLE EYE</span></span> <a href="#"><img src="css/images/movie10.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">NARNIA</span></span> <a href="#"><img src="css/images/movie11.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie last">
+          <div class="movie-image"> <span class="play"><span class="name">ANGELS &amp; DEMONS</span></span> <a href="#"><img src="css/images/movie12.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </div>
+      <div class="box">
+        <div class="head">
+          <h2>MOST COMMENTED</h2>
+          <p class="text-right"><a href="#">See all</a></p>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">HOUSE</span></span> <a href="#"><img src="css/images/movie13.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span> <a href="#"><img src="css/images/movie14.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">MIRRORS</span></span> <a href="#"><img src="css/images/movie15.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">THE KINGDOM</span></span> <a href="#"><img src="css/images/movie16.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie">
+          <div class="movie-image"> <span class="play"><span class="name">MOTIVES</span></span> <a href="#"><img src="css/images/movie17.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="movie last">
+          <div class="movie-image"> <span class="play"><span class="name">THE PRESTIGE</span></span> <a href="#"><img src="css/images/movie18.jpg" alt="" /></a> </div>
+          <div class="rating">
+            <p>RATING</p>
+            <div class="stars">
+              <div class="stars-in"> </div>
+            </div>
+            <span class="comments">12</span> </div>
+        </div>
+        <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+    <div id="news">
+      <div class="head">
+        <h3>NEWS</h3>
+        <p class="text-right"><a href="#">See all</a></p>
+      </div>
+      <div class="content">
+        <p class="date">12.04.09</p>
+        <h4>Disney's A Christmas Carol</h4>
+        <p>&quot;Disney's A Christmas Carol,&quot; a multi-sensory thrill ride re-envisioned by Academy Award&reg;-winning filmmaker Robert Zemeckis, captures... </p>
+        <a href="#">Read more</a> </div>
+      <div class="content">
+        <p class="date">11.04.09</p>
+        <h4>Where the Wild Things Are</h4>
+        <p>Innovative director Spike Jonze collaborates with celebrated author Maurice Sendak to bring one of the most beloved books of all time to the big screen in &quot;Where the Wild Things Are,&quot;...</p>
+        <a href="#">Read more</a> </div>
+      <div class="content">
+        <p class="date">10.04.09</p>
+        <h4>The Box</h4>
+        <p>Norma and Arthur Lewis are a suburban couple with a young child who receive an anonymous gift bearing fatal and irrevocable consequences.</p>
+        <a href="#">Read more</a> </div>
+    </div>
+    <div id="coming">
+      <div class="head">
+        <h3>COMING SOON<strong>!</strong></h3>
+        <p class="text-right"><a href="#">See all</a></p>
+      </div>
+      <div class="content">
+        <h4>The Princess and the Frog </h4>
+        <a href="#"><img src="css/images/coming-soon1.jpg" alt="" /></a>
+        <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
+        <a href="#">Read more</a> </div>
+      <div class="cl">&nbsp;</div>
+      <div class="content">
+        <h4>The Princess and the Frog </h4>
+        <a href="#"><img src="css/images/coming-soon2.jpg" alt="" /></a>
+        <p>Walt Disney Animation Studios presents the musical &quot;The Princess and the Frog,&quot; an animated comedy set in the great city of New Orleans...</p>
+        <a href="#">Read more</a> </div>
+    </div>
+    <div class="cl">&nbsp;</div>
+  </div>
+  <div id="footer">
+    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+    <p class="rf">Design by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+    <div style="clear:both;"></div>
+  </div>
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- END PAGE SOURCE -->
+</body>
+</html>
 
 <router-outlet></router-outlet>
