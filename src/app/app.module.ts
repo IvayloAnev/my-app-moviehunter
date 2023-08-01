@@ -9,13 +9,17 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     MainComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+   
+  
   ],
   imports: [
     BrowserModule,
