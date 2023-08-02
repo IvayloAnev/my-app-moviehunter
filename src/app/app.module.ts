@@ -8,6 +8,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InfoPannelComponent } from './info-pannel/info-pannel.component';
 
 
 
@@ -18,6 +19,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MainComponent,
     HomeComponent,
     NotFoundComponent,
+    InfoPannelComponent,
    
   
   ],
