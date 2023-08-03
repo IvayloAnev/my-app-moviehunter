@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UserRoutingModule } from './user.routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { LogoutComponent } from './logout/logout.component';
     LogoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UserRoutingModule
   ]
 })
 export class UserModule { }

@@ -12,26 +12,19 @@
 </head>
 
 <body>
-  <router-outlet>
+
   <!-- START PAGE SOURCE -->
   <div id="shell">
 
     <app-header />
 
-    <div id="main">
-
-      <app-movie-list />
-      
-      <app-info-pannel/>
-     
-    </div>
+    <router-outlet />
 
     <app-footer />
 
   </div>
   <!-- END PAGE SOURCE -->
-</router-outlet>
+
 </body>
 
 </html>
-

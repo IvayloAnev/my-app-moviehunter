@@ -9,6 +9,8 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { InfoPannelComponent } from './info-pannel/info-pannel.component';
+import { UserModule } from './user/user.module';
+import { UserRoutingModule } from './user/user.routing.module';
 
 
 
@@ -27,7 +29,9 @@ import { InfoPannelComponent } from './info-pannel/info-pannel.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
