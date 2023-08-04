@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { InfoPannelComponent } from './info-pannel/info-pannel.component';
 import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user.routing.module';
+import { MovieModule } from './movie/movie.module';
 
 
 
@@ -31,6 +32,7 @@ import { UserRoutingModule } from './user/user.routing.module';
     CoreModule,
     HttpClientModule,
     UserModule,
+    MovieModule
    
   ],
   providers: [],
