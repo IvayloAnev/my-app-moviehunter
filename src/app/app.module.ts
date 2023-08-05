@@ -13,6 +13,7 @@ import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user.routing.module';
 import { MovieModule } from './movie/movie.module';
 import { AboutComponent } from './about/about.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 
 
@@ -25,6 +26,7 @@ import { AboutComponent } from './about/about.component';
     NotFoundComponent,
     InfoPannelComponent,
     AboutComponent,
+    ContactsComponent,
    
   
   ],
