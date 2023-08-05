@@ -12,6 +12,7 @@ import { InfoPannelComponent } from './info-pannel/info-pannel.component';
 import { UserModule } from './user/user.module';
 import { UserRoutingModule } from './user/user.routing.module';
 import { MovieModule } from './movie/movie.module';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -23,6 +24,7 @@ import { MovieModule } from './movie/movie.module';
     HomeComponent,
     NotFoundComponent,
     InfoPannelComponent,
+    AboutComponent,
    
   
   ],
