@@ -5,7 +5,12 @@
 
             <p class="field field-icon">
                 <label for="email">Email:</label>
-                <input class="input-error" type="email" name="email" id="email" placeholder="john.doe@gmail.com"
+                <input 
+                class="input-error" 
+                type="email" 
+                name="email" 
+                id="email" 
+                placeholder="john.doe@gmail.com"
                     #inputEmail />
             </p>
             <p class="error">Email is required!</p>
@@ -15,7 +20,12 @@
 
             <p class="field field-icon">
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="******" #inputPassword />
+                <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                placeholder="******" 
+                #inputPassword />
             </p>
             <!-- <p class="error">
                   Password is required!
@@ -24,9 +34,9 @@
                   Password must be at least 4 characters!
               </p> -->
 
-            <button>
+              <button (click)="login(inputEmail.value, inputPassword.value)">
                 Login
-            </button>
+              </button>
 
             <p class="text-center">
                 Have an account?
