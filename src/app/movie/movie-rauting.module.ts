@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'add-movie',
     component: NewMovieComponent,
-    canActivate: [AuthActivate],
+    //canActivate: [AuthActivate],
   },
 ];
 
