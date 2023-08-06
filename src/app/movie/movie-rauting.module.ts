@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '../main/main.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
-//import { AuthActivate } from '../core/guards/auth.activate';
+import { AuthActivate } from '../core/guards/auth.activate';
 import { CurrentMovieComponent } from './current-movie/current-movie.component';
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'add-movie',
     component: NewMovieComponent,
-    //canActivate: [AuthActivate],
+    canActivate: [AuthActivate],
   },
 ];
 
@@ -31,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MovieRoutingModule {}
+export class MovieRoutingModule { }

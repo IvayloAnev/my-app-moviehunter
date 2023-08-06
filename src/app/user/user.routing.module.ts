@@ -4,28 +4,28 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
-//import { AuthActivate } from '../core/guards/auth.activate';
+import { AuthActivate } from '../core/guards/auth.activate';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    // canActivate: [AuthActivate],
+    canActivate: [AuthActivate],
   },
   {
     path: 'register',
     component: RegisterComponent,
-    // canActivate: [AuthActivate],
+    canActivate: [AuthActivate],
   },
   {
     path: 'logout',
     component: LogoutComponent,
-    // canActivate: [AuthActivate],
+    canActivate: [AuthActivate],
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    // canActivate: [AuthActivate],
+    canActivate: [AuthActivate],
   },
 ];
 
@@ -33,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UserRoutingModule {}
+export class UserRoutingModule { }
