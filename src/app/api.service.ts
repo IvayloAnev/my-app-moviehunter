@@ -10,6 +10,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  getMovie(id: string) {
+    const { appUrl } = environment;
+    return this.http.get<Movie>(`${appUrl}/movies/${id}`);
+  }
+
   getMovies() {
     const { appUrl } = environment;
     return this.http.get<Movie[]>(`${appUrl}/movies`);
