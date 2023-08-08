@@ -14,6 +14,7 @@ import { UserRoutingModule } from './user/user.routing.module';
 import { MovieModule } from './movie/movie.module';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { MovieNewestComponent } from './movie-newest/movie-newest.component';
 
 
 
@@ -27,6 +28,7 @@ import { ContactsComponent } from './contacts/contacts.component';
     InfoPannelComponent,
     AboutComponent,
     ContactsComponent,
+    MovieNewestComponent,
    
   
   ],

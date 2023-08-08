@@ -19,4 +19,8 @@ export class ApiService {
     const { appUrl } = environment;
     return this.http.get<Movie[]>(`${appUrl}/movies`);
   }
+  getNewestMovies(){
+    const { appUrl } = environment;
+    return this.http.get<Movie[]>(`${appUrl}/movies?sortBy=_createdOn%20desc&distinct=category`)
+ }
 }
