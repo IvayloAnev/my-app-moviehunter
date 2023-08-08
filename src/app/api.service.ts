@@ -21,6 +21,6 @@ export class ApiService {
   }
   getNewestMovies(){
     const { appUrl } = environment;
-    return this.http.get<Movie[]>(`${appUrl}/movies?sortBy=_createdOn%20desc&distinct=category`)
+    return this.http.get<Movie[]>(`${appUrl}/movies?sortBy=_createdOn%20desc`)
  }
 }
