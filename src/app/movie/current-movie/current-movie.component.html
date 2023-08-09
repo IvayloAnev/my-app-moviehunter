@@ -6,8 +6,8 @@
         </div>-->
 
         <div class="movie">
-            <div class="movie-image"> <span class="play"><span class="name">{{movie?.title}}</span></span>
-                <a href=""><img src={{movie?.imageUrl}} alt="movie-image" /></a>
+            <div class="movie-image">
+                <img src={{movie?.imageUrl}} alt="movie-image" />
             </div>
             <div class="rating">
                 <!--<p>{{movie?.title}}</p>
@@ -15,6 +15,18 @@
                       <div class="stars-in"> </div>
                   </div>-->
                 <span class="comments">{{movie?.release_year}}</span>
+                
+            </div>
+            <div class="rating">
+                <span class="comments">{{movie?.title}}</span>
+            </div>
+            <div class="rating">
+                <span class="comments">{{movie?.genre}}</span>
+            </div>
+            
+            <div class=buttons>
+                <button class="btn-edit">Edit</button>
+                <button class="btn-delete">Delete</button>
             </div>
         </div>
 
