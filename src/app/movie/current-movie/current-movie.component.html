@@ -1,1 +1,23 @@
-<p>current-movie works!</p>
+<div id="content">
+    <div class="box">
+        <!--<div class="head">
+          <h2>LATEST TRAILERS</h2>
+          <p class="text-right"><a href="#">See all</a></p>
+        </div>-->
+
+        <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">{{movie?.title}}</span></span>
+                <a href=""><img src={{movie?.imageUrl}} alt="movie-image" /></a>
+            </div>
+            <div class="rating">
+                <!--<p>{{movie?.title}}</p>
+               <div class="stars">
+                      <div class="stars-in"> </div>
+                  </div>-->
+                <span class="comments">{{movie?.release_year}}</span>
+            </div>
+        </div>
+
+        <div class="cl">&nbsp;</div>
+    </div>
+</div>

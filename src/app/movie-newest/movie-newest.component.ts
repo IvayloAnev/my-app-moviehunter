@@ -16,7 +16,7 @@ export class MovieNewestComponent implements OnInit {
     this.apiService.getNewestMovies().subscribe({
       next: (movies) => {
         this.movieNewest = movies.slice(0,3);
-        console.log(movies);
+        //console.log(movies);
         //this.isLoading = false;
       },
       error: (err) => {
