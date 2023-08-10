@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-movie',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-movie.component.css']
 })
 export class NewMovieComponent {
+  newMovieSubmitHandler(form: NgForm): void {
+    if (form.invalid) {
+      return;
+    }
 
+    console.log(form.value);
+  }
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewMovieComponent } from './new-movie/new-movie.component';
 import { CurrentMovieComponent } from './current-movie/current-movie.component';
 import { MovieRoutingModule } from './movie-rauting.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { MovieRoutingModule } from './movie-rauting.module';
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    FormsModule
   ]
 })
 export class MovieModule { }
