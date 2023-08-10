@@ -1,59 +1,88 @@
 <div class="container">
-    <div class="new-theme-border">
-      <div class="header-background">
-        <span>ADD MOVIE</span>
-      </div>
-      <form #form="ngForm" (ngSubmit)="newMovieSubmitHandler(form)">
-        <div class="new-theme-title">
-          <label for="themeName">Title <span class="red">*</span></label>
-          <input
-            type="text"
-            name="themeName"
-            id="themeName"
-            ngModel
-            #inputName="ngModel"
-            required
-            minlength="5"
-          />
-  
-          <ng-container *ngIf="inputName.touched">
-            <p class="error" *ngIf="inputName.errors?.['required']">
-              Theme name is required.
-            </p>
-            <p class="error" *ngIf="inputName.errors?.['minlength']">
-              Theme name must be at least 5 characters long.
-            </p>
-          </ng-container>
+    <div class="new-movie-border">
+        <div class="header-background">
+            <span>ADD MOVIE</span>
         </div>
-  
-        <div class="new-theme-content">
-          <label for="postText">Post <span class="red">*</span></label>
-          <textarea
-            type="text"
-            name="postText"
-            id="postText"
-            rows="8"
-            class="height"
-            ngModel
-            #textAreaInput="ngModel"
-            required
-            minlength="10"
-          ></textarea>
-  
-          <ng-container *ngIf="textAreaInput.touched">
-            <p class="error" *ngIf="textAreaInput.errors?.['required']">
-              The field with your post is required.
-            </p>
-            <p class="error" *ngIf="textAreaInput.errors?.['minlength']">
-              Post must be at least 10 characters long.
-            </p>
-          </ng-container>
-        </div>
-  
-        <div class="new-theme-buttons">
-          <button class="cancel">Cancel</button>
-          <button class="public" [disabled]="form.invalid">Post</button>
-        </div>
-      </form>
+        <form #form="ngForm" (ngSubmit)="newMovieSubmitHandler(form)">
+            <div class="new-movie-title">
+                <label for="movieName">Title:<span class="red"></span></label>
+                <input 
+                type="text" 
+                name="movieName" 
+                id="mvieName" 
+                ngModel #inputName="ngModel" 
+                required
+                minlength="3" />
+
+                <ng-container *ngIf="inputName.touched">
+                    <p class="error" *ngIf="inputName.errors?.['required']">
+                        Movie name is required.
+                    </p>
+                    <p class="error" *ngIf="inputName.errors?.['minlength']">
+                        Movie name must be at least 3 characters long.
+                    </p>
+                </ng-container>
+            </div>
+            <div class="new-movie-gerne">
+                <label for="movieName">Genre:<span class="red"></span></label>
+                <input 
+                type="text" 
+                name="movieName" 
+                id="movieName" 
+                ngModel #inputName="ngModel" 
+                required
+                minlength="3" />
+
+                <ng-container *ngIf="inputName.touched">
+                    <p class="error" *ngIf="inputName.errors?.['required']">
+                        Movie Genre is required.
+                    </p>
+                    <p class="error" *ngIf="inputName.errors?.['minlength']">
+                        Movie Genre must be at least 3 characters long.
+                    </p>
+                </ng-container>
+            </div>
+
+            <div class="new-movie-img">
+                <label for="movieName">ImgUrl:<span class="red"></span></label>
+                <input 
+                type="text" 
+                name="movieName" 
+                id="movieName" 
+                ngModel #inputName="ngModel" 
+                required />
+
+                <ng-container *ngIf="inputName.touched">
+                    <p class="error" *ngIf="inputName.errors?.['required']">
+                        ImgUrl is required.
+                    </p>
+
+                </ng-container>
+            </div>
+
+            <div class="new-movie-year">
+                <label for="movieName">Year:<span class="red"></span></label>
+                <input 
+                type="text" 
+                name="movieName" 
+                id="movieName" 
+                ngModel #inputName="ngModel" 
+                required />
+
+                <ng-container *ngIf="inputName.touched">
+                    <p class="error" *ngIf="inputName.errors?.['required']">
+                        Year is required.
+                    </p>
+
+                </ng-container>
+            </div>
+
+
+
+            <div class="new-movie-buttons">
+                <button class="cancel">Cancel</button>
+                <button class="public" [disabled]="form.invalid">Post</button>
+            </div>
+        </form>
     </div>
-  </div>
+</div>

@@ -1,0 +1,74 @@
+/* new-movie */
+
+.new-movie-border {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 1em;
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    padding: 1em;
+  }
+  
+  .new-movie-border .input {
+    margin-bottom: 1em;
+  }
+  
+  .header-background {
+    padding: 1.5em;
+    padding-bottom: 0;
+    margin-bottom: 1em;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+  }
+  
+  .header-background span {
+    color:white;
+    padding: 0.5em;
+    margin-top: 1em;
+    border-radius: 0.3em;
+  }
+  
+  .new-movie-title,
+  .new-movie-gerne,
+  .new-movie-img,
+  .new-movie-year{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px;
+  }
+  
+  
+ 
+  
+  button + button {
+    margin-left: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .new-movie-buttons {
+    margin-top: 1em;
+    text-align: center;
+  }
+  
+  .new-movie-buttons button {
+    padding: 0.4em 1.5em;
+    border: 1px solid #333333;
+    border-radius: 0.3em;
+  }
+  
+  p.error {
+    text-align: left;
+    border-radius: 0.3em;
+    color: red;
+    padding-top: 0;
+  }
+  
+  .input-error {
+    border-left-color: red;
+  }
