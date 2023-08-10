@@ -1,3 +1,4 @@
+<!-- Reactive driven aproach-->
 <div class="container">
     <form class="register" [formGroup]="form" (ngSubmit)="register()">
       <fieldset>
@@ -6,8 +7,7 @@
         <!-- username -->
         <p class="field field-icon">
           <label for="username"
-            ><span><i class="fas fa-user"></i></span
-          ></label>
+            >Username:</label>
           <input
             class="input-error"
             type="text"
@@ -30,8 +30,7 @@
         <!-- email -->
         <p class="field field-icon">
           <label for="email"
-            ><span><i class="fas fa-envelope"></i></span
-          ></label>
+            >Email:</label>
           <input
             type="email"
             name="email"
@@ -53,13 +52,12 @@
           </p>
         </ng-container>
   
-        {{ form.get("email")?.errors | json }}
+       <!--{{ form.get("email")?.errors | json }}-->
   
         <!-- telephone -->
         <p class="field field-icon">
           <label for="tel"
-            ><span><i class="fas fa-phone"></i></span
-          ></label>
+            >Phone:</label>
           <select name="select-tel" id="select-tel" class="tel">
             <option value="00359">+359</option>
           </select>
@@ -76,8 +74,7 @@
           <!-- password -->
           <p class="field field-icon">
             <label for="password"
-              ><span><i class="fas fa-lock"></i></span
-            ></label>
+              >Password:</label>
             <input
               type="password"
               name="password"
@@ -109,8 +106,7 @@
           <!-- rePassword -->
           <p class="field field-icon">
             <label for="rePassword"
-              ><span><i class="fas fa-lock"></i></span
-            ></label>
+              >RePass:</label>
             <input
               type="password"
               name="rePassword"
