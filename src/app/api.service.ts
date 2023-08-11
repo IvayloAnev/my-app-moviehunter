@@ -11,16 +11,16 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getMovie(id: string) {
-    const { appUrl } = environment;
-    return this.http.get<Movie>(`${appUrl}/movies/${id}`);
+    const { apiUrl } = environment;
+    return this.http.get<Movie>(`${apiUrl}/movies/${id}`);
   }
 
   getMovies() {
-    const { appUrl } = environment;
-    return this.http.get<Movie[]>(`${appUrl}/movies`);
+    const { apiUrl } = environment;
+    return this.http.get<Movie[]>(`${apiUrl}/movies`);
   }
   getNewestMovies(){
-    const { appUrl } = environment;
-    return this.http.get<Movie[]>(`${appUrl}/movies?sortBy=_createdOn%20desc`)
+    const { apiUrl } = environment;
+    return this.http.get<Movie[]>(`${apiUrl}/movies?sortBy=_createdOn%20desc`)
  }
 }
