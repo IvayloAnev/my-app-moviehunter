@@ -12,15 +12,15 @@ export class ApiService {
 
   getMovie(id: string) {
     const { apiUrl } = environment;
-    return this.http.get<Movie>(`${apiUrl}/movies/${id}`);
+    return this.http.get<Movie>(`${apiUrl}/data/movies/${id}`);
   }
 
   getMovies() {
     const { apiUrl } = environment;
-    return this.http.get<Movie[]>(`${apiUrl}/movies`);
+    return this.http.get<Movie[]>(`${apiUrl}/data/movies`);
   }
   getNewestMovies(){
     const { apiUrl } = environment;
-    return this.http.get<Movie[]>(`${apiUrl}/movies?sortBy=_createdOn%20desc`)
+    return this.http.get<Movie[]>(`${apiUrl}/data/movies?sortBy=_createdOn%20desc`)
  }
 }

@@ -15,7 +15,7 @@ import {
   
   @Injectable()
   export class AppInterceptor implements HttpInterceptor {
-    constructor(private router: Router, private errorServie: ErrorService) {}
+    constructor(private router: Router, ) {}
   
     intercept(
       req: HttpRequest<any>,
@@ -31,9 +31,9 @@ import {
       return next.handle(req).pipe(
         catchError((err) => {
           if (err.status === 401) {
-            this.router.navigate(['/auth/login']);
+            this.router.navigate(['/login']);
           } else {
-            this.errorServie.setError(err);
+            //this.errorServie.setError(err);
             this.router.navigate(['/error']);
           }
   
