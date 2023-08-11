@@ -24,7 +24,7 @@ import {
       if (req.url.startsWith('/api')) {
         req = req.clone({
           url: req.url.replace('/api', apiUrl),
-          withCredentials: true, // Cookie -> JWT
+          //withCredentials: true, // Cookie -> JWT
         });
       }
   
