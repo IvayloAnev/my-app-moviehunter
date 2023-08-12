@@ -4,12 +4,13 @@
             <span>ADD MOVIE</span>
         </div>
         <form #form="ngForm" (ngSubmit)="newMovieSubmitHandler(form)">
+
             <div class="new-movie-title">
-                <label for="movieName">Title:<span class="red"></span></label>
+                <label for="title">Title:<span class="red"></span></label>
                 <input 
                 type="text" 
-                name="movieName" 
-                id="mvieName" 
+                name="title" 
+                id="title" 
                 ngModel #inputName="ngModel" 
                 required
                 minlength="3" />
@@ -23,12 +24,13 @@
                     </p>
                 </ng-container>
             </div>
-            <div class="new-movie-gerne">
-                <label for="movieName">Genre:<span class="red"></span></label>
+
+            <div class="new-movie-genre">
+                <label for="genre">Genre:<span class="red"></span></label>
                 <input 
                 type="text" 
-                name="movieName" 
-                id="movieName" 
+                name="genre" 
+                id="genre" 
                 ngModel #inputName="ngModel" 
                 required
                 minlength="3" />
@@ -44,11 +46,11 @@
             </div>
 
             <div class="new-movie-img">
-                <label for="movieName">ImgUrl:<span class="red"></span></label>
+                <label for="imageUrl">ImgUrl:<span class="red"></span></label>
                 <input 
                 type="text" 
-                name="movieName" 
-                id="movieName" 
+                name="imageUrl" 
+                id="imageUrl" 
                 ngModel #inputName="ngModel" 
                 required />
 
@@ -61,11 +63,11 @@
             </div>
 
             <div class="new-movie-year">
-                <label for="movieName">Year:<span class="red"></span></label>
+                <label for="release_year">Year:<span class="red"></span></label>
                 <input 
                 type="text" 
-                name="movieName" 
-                id="movieName" 
+                name="release_year" 
+                id="release_year" 
                 ngModel #inputName="ngModel" 
                 required />
 
@@ -80,9 +82,9 @@
 
 
             <div class="new-movie-buttons">
-                <button class="cancel">Cancel</button>
                 <button class="public" [disabled]="form.invalid">Post</button>
             </div>
+
         </form>
     </div>
 </div>

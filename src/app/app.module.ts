@@ -32,6 +32,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     ContactsComponent,
     MovieNewestComponent,
     AuthenticateComponent,
+    
    
   
   ],
