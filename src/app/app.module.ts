@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { MovieNewestComponent } from './movie-newest/movie-newest.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -30,6 +31,7 @@ import { appInterceptorProvider } from './app.interceptor';
     AboutComponent,
     ContactsComponent,
     MovieNewestComponent,
+    AuthenticateComponent,
    
   
   ],
