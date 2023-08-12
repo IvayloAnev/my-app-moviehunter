@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { ErrorComponent } from './core/error/error.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     path: 'contacts',
     component: ContactsComponent,
   },
+  { path: 'error', component: ErrorComponent },
   //{ path: '**',component: NotFoundComponent },
 ];
 
