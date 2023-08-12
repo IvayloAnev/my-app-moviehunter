@@ -26,7 +26,9 @@
         <ul>
             <li><a routerLink="/">HOME</a></li>
             <li><a routerLink="/movies">MOVIES</a></li>
-            <li><a routerLink="/add-movie">ADD MOVIE</a></li>
+            <li  *ngIf="isLoggedIn">
+                <a routerLink="/add-movie">ADD MOVIE</a>
+            </li>
             <li><a routerLink="/about">ABOUT</a></li>
             <li><a routerLink="/contacts">CONTACTS</a></li>
         </ul>

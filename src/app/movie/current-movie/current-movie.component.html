@@ -24,7 +24,7 @@
                 <span class="comments">{{movie?.genre}}</span>
             </div>
             
-            <div class=buttons>
+            <div class=buttons *ngIf="isLogged" >
                 <button class="btn-edit">Edit</button>
                 <button class="btn-delete">Delete</button>
             </div>
