@@ -1,5 +1,5 @@
 <div id="header">
-    <h1 id="logo"><a href="#">MovieHunter</a></h1>
+    <h1 id="logo"><a routerLink="/">MovieHunter</a></h1>
     <div class="social">
         <span>FOLLOW US ON:</span>
         <ul>
@@ -25,9 +25,10 @@
     <div id="sub-navigation">
         <ul>
             <li><a routerLink="/">HOME</a></li>
-            <li><a routerLink="/movies">MOVIES</a></li>
+            
             <li  *ngIf="isLoggedIn">
-                <a routerLink="/add-movie">ADD MOVIE</a>
+                <!--<a routerLink="/add-movie">ADD MOVIE</a>-->
+                <a routerLink="/movies">MOVIES</a>
             </li>
             <li><a routerLink="/about">ABOUT</a></li>
             <li><a routerLink="/contacts">CONTACTS</a></li>

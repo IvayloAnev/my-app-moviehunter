@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "http://localhost:3030/admin/",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
